@@ -1,0 +1,22 @@
+public class LongestConsecutive{
+	public static int longestConsecutive(int[] num) {
+		Map<Integer, Integer> sequence = new HashMap<Integer, Integer>();
+		int array[] = new int[32];
+		Arrays.fill(array, 0);
+		int longest = 0;
+		for (int i = 0; i < num.length; i++) {
+			if (sequence.containsKey(num[i])) continue;
+			int lowerbound = num[i];
+			int upperbound = num[i];
+			if (sequence.containsKey(num[i] - 1)) // Get the lowerbound
+				lowerbound = sequence.get(num[i] - 1);
+			if (sequence.containsKey(num[i] + 1))// Get the Upperbound
+				upperbound = sequence.get(num[i] + 1);
+			longest = Math.max(longest, (upperbound - lowerbound)+ 1);
+			sequence.put(num[i],num[i]);
+			sequence.put(lowerbound, upperbound);
+			sequence.put(upperbound, lowerbound);
+		}
+		return longest;
+	}
+}
