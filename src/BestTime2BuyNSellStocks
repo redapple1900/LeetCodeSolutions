@@ -1,0 +1,13 @@
+public class BestTime2BuyNSellStocks {
+    public int maxProfit(int[] prices) {
+        int total_profits=0;
+        int profits_sofar=0;
+        for (int j=1;j<prices.length;j++){
+            int diff=prices[j]-prices[j-1];
+            profits_sofar+=diff;
+            profits_sofar=Math.max(0,profits_sofar);
+            total_profits=Math.max(total_profits,profits_sofar);
+        }
+        return total_profits;   
+    }
+}
