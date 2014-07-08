@@ -1,3 +1,4 @@
+package solutions;
 import basicStructures.TreeLinkNode;
 
 
