@@ -1,0 +1,17 @@
+public class ReverseWordsInString {
+    public String reverseWords(String s) {
+        Deque<String> mStack = new LinkedList<String>();
+    	StringBuilder result=new StringBuilder();
+        for (String word:s.split(" ")){
+        	if (!word.isEmpty()){
+        		mStack.push(word);
+        	}        	
+        }
+        
+    	for (int i=mStack.size();i>0;i--){
+    		result.append(mStack.pop());   		
+    		result.append(" ");
+    	}
+    	return result.toString().trim();
+    }
+}
