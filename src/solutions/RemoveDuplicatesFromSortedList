@@ -1,0 +1,20 @@
+public class RemoveDuplicatesFromSortedList {
+    public ListNode deleteDuplicates(ListNode head) {
+        if (null!=head){
+            ListNode result=head;
+            ListNode slow=result;
+            ListNode fast=result.next;
+            while (null!=fast){
+                if (slow.val==fast.val){
+                    fast=fast.next;
+                    slow.next=fast;
+                }else {
+                    slow=slow.next;
+                    fast=fast.next;
+                }
+            }
+            return result;
+        }else return null;
+        
+    }
+}
