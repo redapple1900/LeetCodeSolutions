@@ -1,0 +1,10 @@
+public class MaximumDepth {
+    public int maxDepth(TreeNode root) {
+        if (null==root) return 0;
+        else {
+            int l=maxDepth(root.left);
+            int r=maxDepth(root.right);
+            return (l>r)?(l+1):(r+1);
+        } 
+    }
+}
