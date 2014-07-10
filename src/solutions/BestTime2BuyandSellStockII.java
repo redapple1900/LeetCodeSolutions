@@ -6,8 +6,6 @@ public class BestTime2BuyandSellStockII {
         for (int j=1;j<prices.length;j++)
             if ((prices[j]-prices[j-1])>=0)
                 total+=(prices[j]-prices[j-1]);
-            String a = new String();
-           
         return total;   
     }
 }
