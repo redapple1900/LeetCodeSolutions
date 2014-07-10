@@ -1,0 +1,54 @@
+public class CombinationSum {
+	public List<List<Integer>> combinationSum(int[] candidates, int target) {
+		List<List<Integer>> result = new LinkedList<List<Integer>>();
+		if (candidates == null || candidates.length == 0)
+			return result;
+
+		Deque<List<Integer>> list_queue = new LinkedList<List<Integer>>();
+		Deque<Integer> diff_queue = new LinkedList<Integer>();
+
+		for (int i = 0; i < candidates.length; i++) {
+			int temp = target - candidates[i];
+			List<Integer> list = new LinkedList<Integer>();
+			if (temp >= candidates[i]) {
+				diff_queue.addLast(temp);
+				list.add(candidates[i]);
+				list_queue.addLast(list);
+			} else if (temp == 0) {
+				list.add(candidates[i]);
+				result.add(list);
+			} else
+				continue;
+		}
+
+		while (!diff_queue.isEmpty()) {
+			int temp = diff_queue.pollFirst();
+			List<Integer> list = list_queue.pollFirst();
+			System.out.println(temp+" "+list.size()+" "+list.get(list.size()-1));
+			if (temp==0){
+				List<Integer> nlist = new LinkedList<Integer>();
+				nlist.addAll(list);					
+				result.add(nlist);
+				continue;
+			}
+			
+			for (int i = 0; i < candidates.length; i++) {
+				if (candidates[i] < list.get(list.size() - 1))
+					continue;
+
+				if (temp >= candidates[i]) {
+					
+					diff_queue.addLast(temp -candidates[i]);
+					
+					List<Integer> nlist = new LinkedList<Integer>();
+					nlist.addAll(list);
+					nlist.add(candidates[i]);
+					
+					list_queue.addLast(nlist);
+				} else 
+					continue;
+			}
+		}
+		return result;
+	}
+}
