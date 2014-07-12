@@ -1,0 +1,14 @@
+public class MaximamSubarray {
+    public int maxSubArray(int[] A) {
+        int max_number=Integer.MIN_VALUE;
+        int max_sofar=0;
+        int max_sum=0;
+        for (int i=0;i<A.length;i++){
+            max_sofar+=A[i];
+            max_number=Math.max(max_number,A[i]);
+            max_sofar=Math.max(max_sofar,0);
+            max_sum=Math.max(max_sum,max_sofar);
+        }
+        return max_sum>0?max_sum:max_number;
+    }
+}
