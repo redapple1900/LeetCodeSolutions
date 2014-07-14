@@ -1,0 +1,34 @@
+public class SubSet {
+    public List<List<Integer>> subsets(int[] S) {
+        List<Integer> list = new LinkedList<Integer>();
+        List<List<Integer>> result = new LinkedList<List<Integer>>();
+        Deque<List<Integer>> queue = new LinkedList<List<Integer>>();
+        
+        result.add(list);
+        
+        for (int i=0;i<S.length;i++){
+            List<Integer> temp_list = new LinkedList<Integer>();
+            temp_list.add(S[i]);
+            result.add(temp_list);
+            queue.add(temp_list);
+        }
+        
+        while (!queue.isEmpty()){
+            list = queue.pollFirst();
+            
+           
+            for (int i=0;i<S.length;i++){
+                if (S[i]>list.get(list.size()-1)){
+                 List<Integer> temp_list= new LinkedList<Integer>();   
+                 temp_list.addAll(list);
+                 temp_list.add(S[i]);
+                result.add(temp_list);
+                queue.add(temp_list);
+                }
+                else continue;
+            }
+        }
+        
+    return result;
+    }
+}
