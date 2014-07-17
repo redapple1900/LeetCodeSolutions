@@ -1,0 +1,34 @@
+public class RemoveDuplicatesFromSortedListI {
+    public ListNode deleteDuplicates(ListNode head) {
+        if (null==head||null==head.next) return head;
+            boolean isDistinct=true;
+            ListNode dummy=new ListNode(0);
+            dummy.next=head;
+            ListNode slow=dummy;
+            ListNode medium=slow.next;
+            ListNode fast=medium.next;
+            while (null!=fast){
+                if (medium.val==fast.val){
+                    isDistinct=false;
+                    fast=fast.next;
+                    medium.next=fast;
+                }else {
+                    if (!isDistinct){
+                        isDistinct=true;
+                        medium=medium.next;
+                        slow.next=medium;
+                        fast=fast.next;
+                        
+                    }else {
+                    slow=slow.next;
+                    medium=medium.next;
+                    fast=fast.next; 
+                    }
+                }
+            }
+            if (!isDistinct) slow.next=slow.next.next;
+            return dummy.next;
+
+        
+    }
+}
