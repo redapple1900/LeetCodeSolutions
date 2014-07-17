@@ -1,0 +1,42 @@
+public class ConvertSortedListToBST{
+    public TreeNode sortedListToBST(ListNode head) {
+        if (head==null) return null;
+        if (head.next==null) return new TreeNode(head.val);
+        if (head.next.next==null) {
+            TreeNode root=new TreeNode(head.val);
+            TreeNode right= new TreeNode(head.next.val);
+            root.right=right;
+            return root;
+        }
+        if (head.next.next.next==null){
+            TreeNode root=new TreeNode(head.next.val);
+            TreeNode left=new TreeNode(head.val);
+            TreeNode right= new TreeNode(head.next.next.val);
+            root.right=right;
+            root.left=left;
+            return root;
+        }
+        ListNode slow = head;
+        ListNode fast= head.next;
+        
+        while (fast!=null){
+            fast=fast.next;
+            
+            if (fast!=null){
+                fast=fast.next;
+                slow=slow.next;
+            }
+        }
+        
+        ListNode temp_root=slow.next;
+        TreeNode root = new TreeNode(temp_root.val);
+        
+        root.right=sortedListToBST(temp_root.next);
+        
+        slow.next=null;
+        root.left=sortedListToBST(head);
+        
+        return root;
+        
+    }
+}
