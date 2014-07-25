@@ -3,12 +3,13 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
+import solutions.LargestRectangleinHistogram;
 import solutions.Triangle;
 import deprecatedSolutions.EditDistance;
 
 public class MainTest {
 
-	@SuppressWarnings("unchecked")
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
@@ -17,6 +18,7 @@ public class MainTest {
 		EditDistance e=new EditDistance();
 		System.out.println(e.minDistance(word1, word2));
 		*/
+		/*
 		List<Integer> list=new ArrayList<Integer>();
 		List<List<Integer>> gen	= new ArrayList<List<Integer>>();
 		for (int i=0;i<5;i++){
@@ -26,6 +28,12 @@ public class MainTest {
 			gen.add((List<Integer>) ((ArrayList<Integer>) list).clone());
 		}
 		Triangle t=new Triangle();
-		System.out.print(t.minimumTotal(gen));		
+		System.out.print(t.minimumTotal(gen));	
+		*/
+		
+		int[] array={4,2,0,3,2,5};
+		
+		LargestRectangleinHistogram lar= new LargestRectangleinHistogram();
+		System.out.print(lar.largestRectangleArea(array));
 	}
 }

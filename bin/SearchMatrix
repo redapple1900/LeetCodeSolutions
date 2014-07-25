@@ -1,0 +1,21 @@
+public class SearchMatrix{
+    public static boolean searchMatrix(int[][] matrix, int target) {
+        int leftcolumn[] =new int[matrix.length];
+        for (int i=0;i<matrix.length;i++)
+            leftcolumn[i]=matrix[i][0];
+        int row=searchRow(leftcolumn,target,0,leftcolumn.length-1);
+        int column=searchRow(matrix[row],target,0,matrix[0].length-1);
+        if (matrix[row][column]==target) return true;
+        else return false;
+    }
+    
+    public static int searchRow(int[] column,int target,int start,int end){
+        if (start==end) return start;
+        int mid = (start+end)/2;
+        if (column[mid]<=target&&column[mid+1]>target) return mid;
+        else if(column[mid+1]==target) return mid+1;
+        else if (target<column[mid]) return searchRow(column,target,start,mid);
+        else if (target>column[mid+1]) return searchRow(column,target,mid+1,end);
+        else return 0;//never get this line
+    }
+}

@@ -1,0 +1,16 @@
+public class ReverseInteger{
+    public int reverse(int x) {
+        
+		if (x==Integer.MIN_VALUE)
+			return Integer.MAX_VALUE;
+			
+		  int a = (x>0)?x:-x;
+			int result=0;
+			
+			while(a>0){
+				result=result*10+a%10;
+				a/=10;
+			}
+       return x>0?result:-result;
+    }
+}

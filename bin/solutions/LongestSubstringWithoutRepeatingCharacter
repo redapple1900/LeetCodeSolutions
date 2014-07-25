@@ -1,0 +1,22 @@
+public class LongestSubstringWithoutRepeatingCharacter{
+    public int lengthOfLongestSubstring(String s) {
+            if (s == null)
+				return 0;
+
+			Map<Integer, Integer> dictionary = new HashMap<Integer, Integer>();
+
+			int max = 0;
+			int count = 0;
+
+			for (int i = 0; i < s.length(); i++) {
+			    count++;
+				if (dictionary.containsKey(s.codePointAt(i)))
+					count = Math.min(count ,
+							i - dictionary.get(s.codePointAt(i)));
+				max = Math.max(count, max);
+				dictionary.put(s.codePointAt(i), i);
+			}
+
+			return max;
+    }
+}

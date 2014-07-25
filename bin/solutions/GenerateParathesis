@@ -1,0 +1,37 @@
+public class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String> result=new LinkedList<String>();
+        
+        if (n==0) return result;
+        
+        Deque<Integer> left_queue = new LinkedList<Integer>();
+        Deque<Integer> right_queue = new LinkedList<Integer>();
+        Deque<String> string_queue = new LinkedList<String>();
+        
+        left_queue.addFirst(n-1);
+        right_queue.addFirst(n);
+        string_queue.addFirst("(");
+        
+        while (!string_queue.isEmpty()){
+            int left = left_queue.pollLast();
+            int right = right_queue.pollLast();
+            String string=string_queue.pollLast();
+            
+            if (left>0){
+                string_queue.addLast(string+"(");
+                left_queue.addLast(left-1);
+                right_queue.addLast(right);
+            }
+            if (right>0&&right>left){
+                string_queue.addLast(string+")");
+                left_queue.addLast(left);
+                right_queue.addLast(right-1);
+            }
+            
+            if (right==0&&left==0)
+                result.add(string);
+        }
+        
+        return result;
+    }
+}

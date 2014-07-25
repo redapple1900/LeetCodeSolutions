@@ -1,0 +1,26 @@
+public class FlatenBinaryTreeToLinkedList{
+    public void flatten(TreeNode root) {
+        if (root!=null){
+            while ((root.left!=null)||(root.right!=null)){
+                if (root.left==null){
+                    root=root.right;
+                }else {
+                    TreeNode temp=findRightLeaf(root.left);
+                    temp.right=root.right;
+                    root.right=root.left;
+                    root.left=null;
+                    root=root.right;
+                }
+            }
+        }
+        
+    }
+    public TreeNode findRightLeaf(TreeNode root){
+        if (root==null)
+            return null;
+  
+            while (root.right!=null) root=root.right;
+            return root;
+
+    }
+}

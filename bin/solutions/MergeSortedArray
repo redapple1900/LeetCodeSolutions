@@ -1,0 +1,23 @@
+public class MergeSortedArray{
+    public void merge(int A[], int m, int B[], int n) {
+        
+        int total;
+        int lengthA=m-1;
+        int lengthB=n-1;
+        
+        for (total=m+n-1;total>=0;total--){
+            if (lengthA<0){
+                 A[total]=B[lengthB--];
+            }else if (lengthB<0){
+                A[total]=A[lengthA--];
+            }else if (A[lengthA]>=B[lengthB]){
+                A[total]=A[lengthA--];
+                //lengthA--;
+            }else {
+                A[total]=B[lengthB--];
+                //lengthB--;
+            }
+        }
+        
+    }
+}
