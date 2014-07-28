@@ -1,0 +1,23 @@
+public class MinimumDepthOfBinaryTree{
+    public int minDepth(TreeNode root) {
+        if (root==null) return 0;
+        if (root.left==null&&root.right==null) return 1;
+        
+        int left=(root.left!=null)?minDepthHelper(root.left):Integer.MAX_VALUE;
+        int right=(root.right!=null)?minDepthHelper(root.right):Integer.MAX_VALUE;
+
+        return Math.min(left,right)+1;
+    }
+    
+    public int minDepthHelper(TreeNode root){
+        if (null==root)
+            return Integer.MAX_VALUE;
+        if (root.left==null&&root.right==null)
+            return 1;
+        else{
+            int l=minDepthHelper(root.left);
+            int r=minDepthHelper(root.right);
+            return (l<r)?(l+1):(r+1);
+        }
+    }
+}
