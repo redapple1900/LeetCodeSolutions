@@ -1,0 +1,23 @@
+public class JumpGameII{
+    public int jump(int[] A) {
+        
+        if (A==null||A.length<2) return 0;
+        
+        int step = 0,range=A[0],next_range=0,i=0;
+        
+        while (range<A.length-1){
+            
+            while (i<=range){
+               next_range=Math.max(next_range,i+A[i]);
+               i++;
+            }
+            
+            if (next_range>range){
+                step++;
+                range=next_range;
+                next_range=0;
+            }
+        }
+        return step+1;
+    }
+}
