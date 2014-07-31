@@ -1,0 +1,40 @@
+public class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        if (matrix==null||matrix.length==0)
+            return 0;
+        if (matrix[0]==null||matrix[0].length==0)
+            return 0;
+            
+        int[] record = new int[matrix[0].length];
+        Arrays.fill(record,0);
+        int result = 0;
+
+        Stack<Integer> index = new Stack<Integer>();
+        index.push(-1);
+
+        for (int i=0;i<matrix.length;i++){
+            for (int j=0;j<matrix[0].length;j++){
+                if (matrix[i][j]=='1')
+                    record[j]+=1;
+                else
+                    record[j]=0;
+  
+                while(index.peek()>-1)
+                    if (record[index.peek()]>record[j]){
+                        int top=index.pop();
+                        result=Math.max(result,record[top]*(j-index.peek()-1));
+                    }
+                    else break;
+                    
+                index.push(j);
+            }
+            while(index.peek()>=0){
+                
+                int top=index.pop();
+                if (record[top]>0)
+                    result=Math.max(result,record[top]*(matrix[0].length-index.peek()-1));
+            }
+        }
+        return result;    
+    }
+}
