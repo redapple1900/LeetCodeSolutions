@@ -4,6 +4,8 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+
+import solutions.Interleave;
 import solutions.WordSearch;
 
 public class MainTest {
@@ -69,11 +71,17 @@ public class MainTest {
 		WordBreak wb = new WordBreak();
 		System.out.print(wb.wordBreak("abcde", set));
 		*/
+		/*
 		char[][] array= {{'a','b'},{'c','d'}};
 		String word="abcd";
 		WordSearch ws = new WordSearch();
 		System.out.print(ws.exist(array, word));
-		
+		*/
+		String s1="cbcccbabbccbbcccbbbcabbbabcababbbbbbaccaccbabbaacbaabbbc";
+		String s2="abcbbcaababccacbaaaccbabaabbaaabcbababbcccbbabbbcbbb";
+		String s3="abcbcccbacbbbbccbcbcacacbbbbacabbbabbcacbcaabcbaaacbcbbbabbbaacacbbaaaabccbcbaabbbaaabbcccbcbabababbbcbbbcbb";
+		Interleave in = new Interleave();
+		System.out.print(in.isInterleave(s1, s2, s3));
 	}
     public static String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
