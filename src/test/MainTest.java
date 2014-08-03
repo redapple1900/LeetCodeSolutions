@@ -2,13 +2,9 @@ package test;
 
 import java.util.Deque;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
-
-import solutions.NextPermutation;
-import solutions.WordBreak;
+import solutions.WordSearch;
 
 public class MainTest {
 
@@ -64,6 +60,7 @@ public class MainTest {
 		for (int i=0;i<array.length;i++)
 			System.out.print(array[i]+" ");
 			*/
+		/*
 		Set<String> set= new HashSet<String>();
 		set.add("a");
 		set.add("abc");
@@ -71,6 +68,11 @@ public class MainTest {
 		set.add("cd");
 		WordBreak wb = new WordBreak();
 		System.out.print(wb.wordBreak("abcde", set));
+		*/
+		char[][] array= {{'a','b'},{'c','d'}};
+		String word="abcd";
+		WordSearch ws = new WordSearch();
+		System.out.print(ws.exist(array, word));
 		
 	}
     public static String minWindow(String S, String T) {
