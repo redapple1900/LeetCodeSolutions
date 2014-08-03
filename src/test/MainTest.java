@@ -2,10 +2,13 @@ package test;
 
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Set;
 
 import solutions.NextPermutation;
+import solutions.WordBreak;
 
 public class MainTest {
 
@@ -54,11 +57,21 @@ public class MainTest {
 		int[] result=search.searchRange(array, 8);
 		System.out.print(result[0]+" "+result[1]);
 		*/
+		/*
 		NextPermutation next = new NextPermutation();
 		int[] array={3,2,1};
 		next.nextPermutation(array);
 		for (int i=0;i<array.length;i++)
 			System.out.print(array[i]+" ");
+			*/
+		Set<String> set= new HashSet<String>();
+		set.add("a");
+		set.add("abc");
+		set.add("bcde");
+		set.add("cd");
+		WordBreak wb = new WordBreak();
+		System.out.print(wb.wordBreak("abcde", set));
+		
 	}
     public static String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
