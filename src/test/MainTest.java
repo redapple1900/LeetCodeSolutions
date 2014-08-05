@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import solutions.CombinationSum2;
 import solutions.Interleave;
 import solutions.PassedWordLadderII;
 import solutions.SubstringWithConcatenation;
@@ -120,6 +121,7 @@ public class MainTest {
 		String s="barfoothefoobarman";
 		String[] l = {"foo","bar"};
 		*/
+		/* SubstringwithConcetanantion
 		String s="lingmindraboofooowingdingbarrwingmonkeypoundcake";
 		String[] l={"fooo","barr","wing","ding","wing"};
 		SubstringWithConcatenation  swc= new SubstringWithConcatenation();
@@ -127,6 +129,15 @@ public class MainTest {
 		System.out.print(swc.findSubstring(s, l));
 		long t2=System.currentTimeMillis();
 		System.out.print("Consumes: "+(t2-t1)+"\n");
+		*/
+		//combination sum II
+		int[] num={1,1};
+		int target =2;
+		CombinationSum2 cs2 = new CombinationSum2();
+		long t1=System.currentTimeMillis();
+		System.out.print(cs2.combinationSum2(num, target));
+		long t2=System.currentTimeMillis();
+		System.out.print(" Consumes: "+(t2-t1)+"\n");
 	}
     public static String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
