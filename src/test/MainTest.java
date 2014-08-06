@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import solutions.Queens;
 import solutions.QueensII;
 
 public class MainTest {
@@ -132,6 +133,7 @@ public class MainTest {
 		long t2=System.currentTimeMillis();
 		System.out.print(" Consumes: "+(t2-t1)+"\n");
 		*/
+		/*
 		QueensII q= new QueensII();
 		
 		for (int i=0;i<=18;i++){
@@ -140,7 +142,18 @@ public class MainTest {
 			long t2=System.currentTimeMillis();
 			System.out.print("Consumes: "+(t2-t1)+"\n");
 		}
+		*/
+		
+		Queens q= new Queens();
+		
+		for (String[] strings:q.solveNQueens(8)){
+			for (String string:strings)
+				System.out.print(string+"\n");
+			System.out.print("\n");
+		}
 			
+		
+		
 		
 		
 	}
