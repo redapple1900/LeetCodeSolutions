@@ -2,18 +2,10 @@ package test;
 
 import java.util.Deque;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
-import solutions.CombinationSum2;
-import solutions.Interleave;
-import solutions.PassedWordLadderII;
-import solutions.SubstringWithConcatenation;
-import solutions.WordLadderII;
-import solutions.WordSearch;
+import solutions.QueensII;
 
 public class MainTest {
 
@@ -131,6 +123,7 @@ public class MainTest {
 		System.out.print("Consumes: "+(t2-t1)+"\n");
 		*/
 		//combination sum II
+		/*
 		int[] num={1,1};
 		int target =2;
 		CombinationSum2 cs2 = new CombinationSum2();
@@ -138,8 +131,20 @@ public class MainTest {
 		System.out.print(cs2.combinationSum2(num, target));
 		long t2=System.currentTimeMillis();
 		System.out.print(" Consumes: "+(t2-t1)+"\n");
+		*/
+		QueensII q= new QueensII();
+		
+		for (int i=0;i<=18;i++){
+			long t1=System.currentTimeMillis();
+			System.out.print("When n="+i+" Total Solution = "+q.totalNQueens(i)+" ");
+			long t2=System.currentTimeMillis();
+			System.out.print("Consumes: "+(t2-t1)+"\n");
+		}
+			
+		
+		
 	}
-    public static String minWindow(String S, String T) {
+    public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
         
         String result="";
