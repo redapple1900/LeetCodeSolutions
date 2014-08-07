@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import solutions.LRUCache;
+import solutions.PermutationSequence;
 import solutions.Queens;
 import solutions.QueensII;
 
@@ -143,7 +145,7 @@ public class MainTest {
 			System.out.print("Consumes: "+(t2-t1)+"\n");
 		}
 		*/
-		
+		/*
 		Queens q= new Queens();
 		
 		for (String[] strings:q.solveNQueens(8)){
@@ -151,10 +153,23 @@ public class MainTest {
 				System.out.print(string+"\n");
 			System.out.print("\n");
 		}
-			
+		/*
+		LRUCache lru = new LRUCache(2);
 		
-		
-		
+		System.out.print(lru.get(2));
+		lru.set(2,5);
+		System.out.print(lru.get(2));
+		lru.set(1,2);
+		lru.set(3,7);
+		System.out.print(lru.get(1));
+		System.out.print(lru.get(2));
+		lru.set(1, 98);
+		System.out.print(lru.get(3));
+		System.out.print(lru.get(3));
+		System.out.print(lru.get(1));
+		*/
+		PermutationSequence ps= new PermutationSequence();
+		System.out.print(ps.getPermutation(6, 720));
 		
 	}
     public  String minWindow(String S, String T) {
