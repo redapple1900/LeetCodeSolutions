@@ -2,14 +2,18 @@ package test;
 
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Set;
 
 import solutions.LRUCache;
 import solutions.PermutationSequence;
+import solutions.Power;
 import solutions.Queens;
 import solutions.QueensII;
 import solutions.ScrambleString;
+import solutions.WordBreakII;
 
 public class MainTest {
 
@@ -67,13 +71,14 @@ public class MainTest {
 			*/
 		/*
 		Set<String> set= new HashSet<String>();
-		set.add("a");
-		set.add("abc");
-		set.add("bcde");
-		set.add("cd");
-		WordBreak wb = new WordBreak();
-		System.out.print(wb.wordBreak("abcde", set));
-		*/
+		set.add("cat");
+		set.add("cats");
+		set.add("sand");
+		set.add("and");
+		set.add("dog");
+		WordBreakII wb = new WordBreakII();
+		System.out.print(wb.wordBreak("catsanddog", set));
+		
 		/*
 		char[][] array= {{'a','b'},{'c','d'}};
 		String word="abcd";
@@ -172,10 +177,11 @@ public class MainTest {
 		//PermutationSequence ps= new PermutationSequence();
 		//System.out.print(ps.getPermutation(6, 720));
 		
-		ScrambleString ss= new ScrambleString();
-		System.out.print(ss.isScramble("ab", "ba"));
+		//ScrambleString ss= new ScrambleString();
+		//System.out.print(ss.isScramble("ab", "ba"));
 		
-		
+		Power p=new Power();
+		System.out.print(p.pow(8.84372, -5));
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
