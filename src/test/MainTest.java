@@ -9,6 +9,7 @@ import solutions.LRUCache;
 import solutions.PermutationSequence;
 import solutions.Queens;
 import solutions.QueensII;
+import solutions.ScrambleString;
 
 public class MainTest {
 
@@ -168,8 +169,12 @@ public class MainTest {
 		System.out.print(lru.get(3));
 		System.out.print(lru.get(1));
 		*/
-		PermutationSequence ps= new PermutationSequence();
-		System.out.print(ps.getPermutation(6, 720));
+		//PermutationSequence ps= new PermutationSequence();
+		//System.out.print(ps.getPermutation(6, 720));
+		
+		ScrambleString ss= new ScrambleString();
+		System.out.print(ss.isScramble("ab", "ba"));
+		
 		
 	}
     public  String minWindow(String S, String T) {
