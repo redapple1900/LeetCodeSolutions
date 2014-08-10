@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
+import solutions.BestTime2BuyandSellStockIII;
 import solutions.LRUCache;
 import solutions.PermutationSequence;
 import solutions.Power;
@@ -180,8 +181,11 @@ public class MainTest {
 		//ScrambleString ss= new ScrambleString();
 		//System.out.print(ss.isScramble("ab", "ba"));
 		
-		Power p=new Power();
-		System.out.print(p.pow(8.84372, -5));
+		//Power p=new Power();
+		//System.out.print(p.pow(8.84372, -5));
+		int[] array={0,2,2,1,2,3,1,2,3};
+		BestTime2BuyandSellStockIII b=new BestTime2BuyandSellStockIII();
+		System.out.print(b.maxProfit(array));
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
