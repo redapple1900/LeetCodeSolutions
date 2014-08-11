@@ -7,7 +7,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
+import solutions.BestTime2BuyandSellStock;
 import solutions.BestTime2BuyandSellStockIII;
+import solutions.DecodeWays;
 import solutions.LRUCache;
 import solutions.PermutationSequence;
 import solutions.Power;
@@ -183,9 +185,12 @@ public class MainTest {
 		
 		//Power p=new Power();
 		//System.out.print(p.pow(8.84372, -5));
-		int[] array={0,2,2,1,2,3,1,2,3};
-		BestTime2BuyandSellStockIII b=new BestTime2BuyandSellStockIII();
-		System.out.print(b.maxProfit(array));
+		//int[] array = { 6, 1, 3, 2, 4, 15, 6, 10, 8 };
+		//BestTime2BuyandSellStock b = new BestTime2BuyandSellStock();
+		//System.out.print(b.maxProfit(array));
+		String n = "301";
+		DecodeWays dw= new DecodeWays();
+		System.out.print(dw.numDecodings(n));
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
