@@ -11,6 +11,7 @@ import solutions.BestTime2BuyandSellStock;
 import solutions.BestTime2BuyandSellStockIII;
 import solutions.DecodeWays;
 import solutions.LRUCache;
+import solutions.LongestPalindromeSubstring;
 import solutions.PermutationSequence;
 import solutions.Power;
 import solutions.Queens;
@@ -188,9 +189,12 @@ public class MainTest {
 		//int[] array = { 6, 1, 3, 2, 4, 15, 6, 10, 8 };
 		//BestTime2BuyandSellStock b = new BestTime2BuyandSellStock();
 		//System.out.print(b.maxProfit(array));
-		String n = "301";
-		DecodeWays dw= new DecodeWays();
-		System.out.print(dw.numDecodings(n));
+		//String n = "301";
+		//DecodeWays dw= new DecodeWays();
+		//System.out.print(dw.numDecodings(n));
+		LongestPalindromeSubstring lps= new LongestPalindromeSubstring();
+		String test="abacedfg";
+		System.out.print(lps.longestPalindrome(test));
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
