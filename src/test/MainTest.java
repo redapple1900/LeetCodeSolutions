@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 
+import solutions.Anagrams;
 import solutions.BestTime2BuyandSellStock;
 import solutions.BestTime2BuyandSellStockIII;
 import solutions.DecodeWays;
@@ -192,9 +193,12 @@ public class MainTest {
 		//String n = "301";
 		//DecodeWays dw= new DecodeWays();
 		//System.out.print(dw.numDecodings(n));
-		LongestPalindromeSubstring lps= new LongestPalindromeSubstring();
-		String test="abacedfg";
-		System.out.print(lps.longestPalindrome(test));
+		//LongestPalindromeSubstring lps= new LongestPalindromeSubstring();
+		//String test="abacedfg";
+		//System.out.print(lps.longestPalindrome(test));
+		String[] s= {"dog","cat","god","tac","ttt"};
+		Anagrams a = new Anagrams();
+		System.out.print(a.anagrams(s));
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
