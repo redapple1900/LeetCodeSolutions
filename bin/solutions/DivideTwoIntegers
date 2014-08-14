@@ -1,0 +1,23 @@
+public class DivideTwoIntegers{
+    public int divide(int dividend, int divisor) {
+        if (divisor==0) return Integer.MAX_VALUE;
+        boolean sign_dividend=(dividend>=0),sign_divisor=(divisor>0);
+        
+        long div_end= Math.abs((long)dividend),div_sor=Math.abs((long)divisor);
+        long temp=0,result=0;
+        
+        for (int i =31;i>=0;i--){
+            temp<<=1;
+            temp|=((div_end>>i)&1);
+            
+            result<<=1;
+            if (temp>=div_sor){
+                temp-=div_sor;
+                result|=1;
+            }
+        }
+        
+        if ((sign_dividend^sign_divisor)) return -(int)result;
+        else return (int)result;
+    }
+}

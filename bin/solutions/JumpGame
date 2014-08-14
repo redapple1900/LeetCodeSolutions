@@ -1,0 +1,12 @@
+public class JumpGame{
+public boolean canJump(int[] A) {
+    if (A==null || A.length==0) return true;
+    int range = 0,index=0;
+    while (index<=range){
+        range=Math.max(range,index+A[index++]);//Get the maximum range to jump
+        if (range>=A.length-1) //Arrive at the last index
+            return true;
+    }
+    return false;
+}
+}

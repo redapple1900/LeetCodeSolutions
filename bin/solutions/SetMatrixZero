@@ -1,0 +1,45 @@
+public class SetMatrixZero{
+    public void setZeroes(int[][] matrix) {
+        if (matrix==null) return;
+        int height = matrix.length;
+        if (height==0) return;
+        int width = matrix[0].length;
+        if(width==0) return;
+        int first_row=1;
+        int first_column=1;
+        
+       
+            for (int i = 0;i<height;i++)
+                if (matrix[i][0]==0)
+                    first_column=0;
+            for (int i =0;i<width;i++)
+                if (matrix[0][i]==0)
+                    first_row=0;
+      
+        
+        for (int row=1;row<height;row++)
+            for (int column=1;column<width;column++)
+                if (matrix[row][column]==0){
+                    matrix[row][0]=0;
+                    matrix[0][column]=0;
+                }
+                
+        for (int row=1;row<height;row++)
+            if (matrix[row][0]==0)
+                for (int column=1;column<width;column++)
+                    matrix[row][column]=0;
+                    
+        for (int column=1;column<width;column++)
+            if (matrix[0][column]==0)
+                for (int row=1;row<height;row++)
+                    matrix[row][column]=0;
+                    
+        if (first_column==0){
+            for (int row=0;row<height;row++)
+                matrix[row][0]=0;
+        }
+        
+        if (first_row==0)
+            Arrays.fill(matrix[0],0);
+    }
+}

@@ -1,0 +1,33 @@
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        TreeLinkNode left = root;
+        while (left!=null){
+            TreeLinkNode level=left;
+            while (level!=null){
+                TreeLinkNode next=level.next;
+                //Find next node with child
+                if (next!=null)
+                    while(next.left==null&&next.right==null){
+                        next=next.next;
+                        if (next==null) break;
+                    }
+                //Handle left node        
+                 if (level.left!=null&&level.right!=null){
+                    level.left.next=level.right;
+                 }else if (level.left!=null&&next!=null){
+                    level.left.next=(next.left!=null)?next.left:next.right;
+                 }
+                 //Handle right node
+                 if (level.right!=null&&next!=null) 
+                    level.right.next=(next.left!=null)?next.left:next.right;
+                 level=next;
+            }
+            //Find the next leftmost node
+            
+            while(left.left==null&&left.right==null&&left.next!=null)
+                    left=left.next;
+           
+            left=(left.left==null)?left.right:left.left;
+        }
+    }
+}

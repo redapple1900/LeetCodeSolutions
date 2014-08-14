@@ -2,23 +2,10 @@ package test;
 
 import java.util.Deque;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
 
-import solutions.Anagrams;
-import solutions.BestTime2BuyandSellStock;
-import solutions.BestTime2BuyandSellStockIII;
-import solutions.DecodeWays;
-import solutions.LRUCache;
-import solutions.LongestPalindromeSubstring;
-import solutions.PermutationSequence;
-import solutions.Power;
-import solutions.Queens;
-import solutions.QueensII;
-import solutions.ScrambleString;
-import solutions.WordBreakII;
+import solutions.IntegerToRoman;
 
 public class MainTest {
 
@@ -196,9 +183,16 @@ public class MainTest {
 		//LongestPalindromeSubstring lps= new LongestPalindromeSubstring();
 		//String test="abacedfg";
 		//System.out.print(lps.longestPalindrome(test));
-		String[] s= {"dog","cat","god","tac","ttt"};
-		Anagrams a = new Anagrams();
-		System.out.print(a.anagrams(s));
+		//String[] s= {"dog","cat","god","tac","ttt"};
+		//Anagrams a = new Anagrams();
+		//System.out.print(a.anagrams(s));
+		//int[] array={1,-2,-5,-4,-3,3,3,5};
+		//ThreeSum ts = new ThreeSum();
+		//System.out.print(ts.threeSum(array));
+		//FourSum fs= new FourSum();
+		//System.out.print(fs.fourSum(array, -11));
+		IntegerToRoman itr = new IntegerToRoman();
+		System.out.print(itr.intToRoman(2014));
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;

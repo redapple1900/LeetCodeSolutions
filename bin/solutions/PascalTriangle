@@ -1,0 +1,25 @@
+public class PascalTriangle{
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result = new LinkedList<List<Integer>>();
+        List<Integer> row;
+        List<Integer> previous=new LinkedList<Integer>();
+        //Deal special case;
+        if (numRows==0) return result;
+        //Begin for row 1;
+        previous.add(1);
+        result.add(previous);
+        //Begin for other rows;
+        for (int i=1;i<numRows;i++){
+        	row=new LinkedList<Integer>();
+        	row.add(1);//first element is always 1
+        	for (int j=1;j<i;j++){
+        		row.add(previous.get(j-1)+previous.get(j));
+        	}
+        	row.add(1);//Last element is always 1
+        	previous=row;
+        	result.add(previous);
+        }
+      
+        return result;
+    }
+}

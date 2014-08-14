@@ -1,0 +1,23 @@
+public class DistinctSubsequences{
+    public int numDistinct(String S, String T) {
+        
+        int short_length=T.length();
+        int long_length=S.length();
+        if (short_length>long_length) return 0;
+        
+        int[] array = new int[short_length+1];
+        
+        Arrays.fill(array,0);
+        
+        array[0]=1;
+        
+        
+        for (int i =1;i<=long_length;i++)
+            for (int j =short_length;j>=1;j--)
+                if (T.charAt(j-1)==S.charAt(i-1))
+                    array[j]+=array[j-1];
+                    
+        return array[short_length];
+        
+    }
+}

@@ -1,0 +1,66 @@
+public class SpiralMatrix{
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> results = new LinkedList<Integer>();
+        if (matrix==null||matrix.length==0) return results;
+        
+        int height= matrix.length;
+        int width=matrix[0].length;
+        
+        int upper_barrier=-1,left_barrier=-1,right_barrier=matrix[0].length,lower_barrier=matrix.length;
+        
+        int row=0,column=0;
+        
+        int direction =0;
+        
+        for (int i=0;i<height*width;i++){
+            
+            switch (direction){
+                
+                case 0://To right;
+                    results.add(matrix[row][column++]);
+                    
+                    if (column>=right_barrier){
+                        column--;
+                        row++;
+                        upper_barrier++;
+                        direction=1;
+                    } 
+                    break;
+                case 1:
+                      results.add(matrix[row++][column]);
+                    
+                    if (row>=lower_barrier){
+                        column--;
+                        row--;
+                        right_barrier--;
+                        direction=2;
+                    }                   
+                    break;
+                case 2:
+                      results.add(matrix[row][column--]);
+                    
+                    if (column<=left_barrier){
+                        column++;
+                        row--;
+                        lower_barrier--;
+                        direction=3;
+                    }                   
+                    break;
+                case 3:
+                     results.add(matrix[row--][column]);
+                    
+                    if (row<=upper_barrier){
+                        column++;
+                        row++;
+                        left_barrier++;
+                        direction=0;
+                    }                    
+                    break;
+                
+            }
+            
+             
+        }
+        return results;
+    }
+}
