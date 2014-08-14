@@ -1,0 +1,46 @@
+public class BinaryTreeMaximum {
+	private class MaxPathResult{
+		private int max;
+		private int branch;
+		
+		public MaxPathResult(int max,int branch){
+			this.setMax(max);			
+			this.setBranch(branch);
+		}
+		public int getMax() {
+			return max;
+		}
+		public void setMax(int max) {
+			this.max = max;
+		}
+		public int getBranch(){
+			return this.branch;
+		}
+		public void setBranch(int branch){
+			this.branch=branch;
+		}
+	}
+	  private class TreeNode {
+		      int val;
+		      TreeNode left;
+		      TreeNode right;
+		      TreeNode(int x) { val = x; }
+		  }
+
+
+	private MaxPathResult maxPathHelper(TreeNode root){
+		if (root==null)
+			return new MaxPathResult(0,0);
+		MaxPathResult left=maxPathHelper(root.left);
+		MaxPathResult right=maxPathHelper(root.right);
+		int max=root.val;
+		max+=left.getBranch()>0?left.getBranch():0;
+		max+=right.getBranch()>0?right.getBranch():0;
+		max=Math.max(Math.max(left.getMax(),right.getMax()), max);
+		int branch=root.val+Math.max(left.getBranch(), right.getBranch());
+		return new MaxPathResult(max,branch);
+	}
+    public int maxPathSum(TreeNode root) {
+        return maxPathHelper(root).getMax();
+    }
+}
