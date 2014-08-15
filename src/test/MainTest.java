@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import solutions.Atoi;
 import solutions.IntegerToRoman;
+import solutions.RegularExpressionMatching;
 
 public class MainTest {
 
@@ -191,8 +193,12 @@ public class MainTest {
 		//System.out.print(ts.threeSum(array));
 		//FourSum fs= new FourSum();
 		//System.out.print(fs.fourSum(array, -11));
-		IntegerToRoman itr = new IntegerToRoman();
-		System.out.print(itr.intToRoman(2014));
+		//IntegerToRoman itr = new IntegerToRoman();
+		//System.out.print(itr.intToRoman(2014));
+		//RegularExpressionMatching rem= new RegularExpressionMatching();
+		//System.out.print(rem.isMatch("", ".*"));
+		Atoi atio = new Atoi();
+		System.out.print(atio.atoi(" -1123u3761867"));
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
