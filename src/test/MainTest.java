@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import solutions.AddBinary;
+import solutions.AddBinaryAlter;
+import solutions.AddBinaryOld;
 import solutions.Atoi;
 import solutions.IntegerToRoman;
 import solutions.RegularExpressionMatching;
@@ -197,8 +200,38 @@ public class MainTest {
 		//System.out.print(itr.intToRoman(2014));
 		//RegularExpressionMatching rem= new RegularExpressionMatching();
 		//System.out.print(rem.isMatch("", ".*"));
-		Atoi atio = new Atoi();
-		System.out.print(atio.atoi(" -1123u3761867"));
+		//Atoi atio = new Atoi();
+		//System.out.print(atio.atoi(" -1123u3761867"));
+		AddBinaryOld abo = new AddBinaryOld();
+		AddBinaryAlter aba= new AddBinaryAlter();
+		AddBinary ab= new AddBinary();
+		String t1="1110101010100101110110011110101";
+		String t2="100010101000100010011111010110101010010";
+		String t3="1101010101010111101111111111111101";
+		String t4="11100101001000111111";
+		
+		long l1=System.currentTimeMillis();
+		for (int i=0;i<1000000;i++){
+			
+			abo.addBinary(t1,t2);
+			abo.addBinary(t3, t4);
+			
+		}
+		System.out.print("ABO:"+(System.currentTimeMillis()-l1)+"\n");
+		l1=System.currentTimeMillis();
+		for (int i=0;i<1000000;i++){
+			ab.addBinary(t1,t2);
+			ab.addBinary(t3, t4);
+			
+		}
+		System.out.print("AB:"+(System.currentTimeMillis()-l1)+"\n");
+		l1=System.currentTimeMillis();
+		for (int i=0;i<1000000;i++){
+			aba.addBinary(t1,t2);
+			aba.addBinary(t3, t4);
+			
+		}
+		System.out.print("ABA:"+(System.currentTimeMillis()-l1)+"\n");
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
