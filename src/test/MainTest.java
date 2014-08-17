@@ -11,6 +11,7 @@ import solutions.AddBinaryOld;
 import solutions.Atoi;
 import solutions.IntegerToRoman;
 import solutions.RegularExpressionMatching;
+import solutions.ValidSudoku;
 
 public class MainTest {
 
@@ -202,14 +203,24 @@ public class MainTest {
 		//System.out.print(rem.isMatch("", ".*"));
 		//Atoi atio = new Atoi();
 		//System.out.print(atio.atoi(" -1123u3761867"));
+		/*
 		AddBinaryOld abo = new AddBinaryOld();
 		AddBinaryAlter aba= new AddBinaryAlter();
 		AddBinary ab= new AddBinary();
 		String t1="1110101010100101110110011110101";
 		String t2="100010101000100010011111010110101010010";
 		String t3="1101010101010111101111111111111101";
-		String t4="11100101001000111111";
+		String t4="111001010
+		01000111111";
+		*/
+		String[] board={".87654321","2........","3........","4........","5........","6........","7........","8........","9........"};
+		char[][] b=new char[9][];
+		for (int i=0;i<9;i++)
+			b[i]=board[i].toCharArray();
+		ValidSudoku vs = new ValidSudoku();
+		System.out.print(vs.isValidSudoku(b));
 		
+		/*
 		long l1=System.currentTimeMillis();
 		for (int i=0;i<1000000;i++){
 			
@@ -232,6 +243,7 @@ public class MainTest {
 			
 		}
 		System.out.print("ABA:"+(System.currentTimeMillis()-l1)+"\n");
+		*/
 	}
     public  String minWindow(String S, String T) {
         if (S.length()==0||T.length()==0) return null;
