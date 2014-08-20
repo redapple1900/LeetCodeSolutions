@@ -5,19 +5,41 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import solutions.AddBinary;
-import solutions.AddBinaryAlter;
-import solutions.AddBinaryOld;
-import solutions.Atoi;
-import solutions.IntegerToRoman;
-import solutions.RegularExpressionMatching;
-import solutions.ValidSudoku;
+import solutions.PermutationII;
+import solutions.TextJustification;
 
 public class MainTest {
 
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		/*LinkedList Test
+		ListNode node0 = new ListNode(0);
+		ListNode node1 = new ListNode(1);
+		ListNode node2 = new ListNode(2);
+		ListNode node3 = new ListNode(3);
+		ListNode node4 = new ListNode(4);
+		ListNode node5 = new ListNode(5);
+		node4.next=node5;
+		node3.next=node4;
+		node2.next=node3;
+		node1.next=node2;
+		node0.next=node1;
+		ListNode head=new ListNode(-1);
+				head.next=node0;
+		ListNode cursor=head.next;
+		while(cursor!=null){
+			System.out.print(cursor.val);
+			cursor=cursor.next;
+		}
+		ReverseLinkedListII rll = new ReverseLinkedListII();
+		head.next=rll.reverseBetween(head.next, 2, 5);	
+		System.out.print("\n");
+		 cursor=head.next;
+		while(cursor!=null){
+			System.out.print(cursor.val);
+			cursor=cursor.next;
+		}
+		
 		/*
 		String word1="abcdefgfff";
 		String word2="wwwwdefgf";
@@ -213,12 +235,84 @@ public class MainTest {
 		String t4="111001010
 		01000111111";
 		*/
+		//LetterCombinations lc= new LetterCombinations();
+		//System.out.print(lc.letterCombinations("23"));
+		/*
+		PermutationII p2= new PermutationII();
+		int[] array={1,1,1,1,1,1,2};
+		System.out.print(p2.permuteUnique(array));
+		*/
+		String[] words ={"What","must","be","shall","be."};
+		TextJustification tj = new TextJustification();
+		System.out.print(tj.fullJustify(words, 16));
+		/*
+		MultiplyStrings ms = new MultiplyStrings();
+		System.out.print(ms.multiply("54321", "12345"));
+		
+		/*
+		SurroundedRegions sr = new SurroundedRegions();
+		String[] a = {"XXXX","XOOX","XXOX","XOXX"};
+		char[][] board=new char[4][];
+		for (int i=0;i<a.length;i++)
+			board[i]=a[i].toCharArray();
+		for (int i=0;i<4;i++){
+			for (int j=0;j<4;j++)
+				System.out.print(board[i][j]);
+			System.out.print("\n");
+		}
+		sr.solve(board);
+		for (int i=0;i<4;i++){
+			for (int j=0;j<4;j++)
+				System.out.print(board[i][j]);
+			System.out.print("\n");
+		}
+
+		/*  Sudoku
+		String[] b={"53..7....","6..195...",".98....6.","8...6...3","4..8.3..1","7...2...6",".6....28.","...419..5","....8..79"};
+		char[][] board=new char[9][];
+		for (int i=0;i<9;i++)
+			if (b[i].length()!=9)
+				System.out.print("Problem");
+		for (int i=0;i<9;i++)
+			board[i]=b[i].toCharArray();
+		for (int i=0;i<9;i++){
+			for (int j=0;j<9;j++)
+				System.out.print(board[i][j]);
+			System.out.print("\n");
+		}
+		SudokuSolver ss= new SudokuSolver();
+		ss.solveSudoku(board);
+		for (int i=0;i<9;i++){
+			for (int j=0;j<9;j++)
+				System.out.print(board[i][j]);
+			System.out.print("\n");
+		}
+		ValidSudoku vs = new ValidSudoku();
+		System.out.print(vs.isValidSudoku(board));
+		String[] c={"109748632","735026184","426139057","317690248","264317590","098452361","940863725","572904816","681275903"};
+		for (int i=0;i<9;i++)
+			board[i]=c[i].toCharArray();
+		System.out.print(vs.isValidSudoku(board));
+		/*
 		String[] board={".87654321","2........","3........","4........","5........","6........","7........","8........","9........"};
+		String[] board2={"..4...63.",".........","5......9.","...56....","4.3.....1","...7.....","...5.....",".........","........."};
 		char[][] b=new char[9][];
 		for (int i=0;i<9;i++)
-			b[i]=board[i].toCharArray();
+			b[i]=board2[i].toCharArray();
 		ValidSudoku vs = new ValidSudoku();
-		System.out.print(vs.isValidSudoku(b));
+		ValidSudokuAlter vsa= new ValidSudokuAlter();
+		
+		long t1=System.currentTimeMillis();
+		for (int i=0;i<100000;i++)
+		vs.isValidSudoku(b);
+		long t2=System.currentTimeMillis();
+		System.out.print("Consumes: "+(t2-t1)+"\n");
+		
+		t1=System.currentTimeMillis();
+		for (int i=0;i<100000;i++)
+		vsa.isValidSudoku(b);
+		 t2=System.currentTimeMillis();
+		System.out.print("Consumes: "+(t2-t1)+"\n");
 		
 		/*
 		long l1=System.currentTimeMillis();
