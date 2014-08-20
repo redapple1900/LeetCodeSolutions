@@ -3,6 +3,7 @@ package solutions;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -10,74 +11,81 @@ import java.util.Queue;
 import java.util.Set;
 
 public class WordLadderII {
-
+	List<List<String>> results;
+	List<String> list;
+	Map<String,List<String>> map;
 	    public List<List<String>> findLadders(String start, String end, Set<String> dict) {
-	    	//long t1=System.currentTimeMillis();
-	        List<List<String>> results= new ArrayList<List<String>>();
+	        results= new ArrayList<List<String>>();
 	        if (dict.size() == 0)
 				return results;
 	        
-	        int min=Integer.MAX_VALUE;
-	        
-	        Queue<String> queue= new ArrayDeque<String>();
-	        
-			Map<String,LinkedList<String>> map = new HashMap<String,LinkedList<String>>();
+	        int curr=1,next=0;	        
+	        boolean found=false;	        
+	        list = new LinkedList<String>();      
+			map = new HashMap<String,List<String>>();
 			
-			Map<String,Integer> ladder = new HashMap<String,Integer>();
-			for (String string:dict){
-			    ladder.put(string, Integer.MAX_VALUE);
-			    map.put(string, new LinkedList<String>());//Find the next
-			}
-				
-			ladder.put(start, 0);
+			Queue<String> queue= new ArrayDeque<String>();
+			Set<String> unvisited = new HashSet<String>(dict);
+			Set<String> visited = new HashSet<String>();
 			
-			queue.add(start);
-			
-			dict.add(end);
-			
+			queue.add(start);			
+			unvisited.add(end);
+			unvisited.remove(start);
+			//BFS
 			while (!queue.isEmpty()) {
 			   
 				String word = queue.poll();
-				
-				int step = ladder.get(word)+1;
-				
-				if (step>min) break;
-				
+				curr--;				
 				for (int i = 0; i < word.length(); i++){
 				   StringBuilder builder = new StringBuilder(word); 
 					for (char ch='a';  ch <= 'z'; ch++){
 						builder.setCharAt(i,ch);
-						String new_word=builder.toString();				
-						if (ch!=word.charAt(i)&&(ladder.containsKey(new_word))&&(step<=ladder.get(new_word))) {
-						    ladder.put(new_word, step);
-						    map.get(new_word).add(word);						    
-						    if (new_word.equals(end))
-						    	min=step;
-						    else
-						    	queue.add(new_word);
-						}//End if dict contains new_word
+						String new_word=builder.toString();	
+						if (unvisited.contains(new_word)){
+							//Handle queue
+							if (visited.add(new_word)){//Key statement,Avoid Duplicate queue insertion
+								next++;
+								queue.add(new_word);
+							}
+							
+							if (map.containsKey(new_word))//Build Adjacent Graph
+								map.get(new_word).add(word);
+							else{
+								List<String> l= new LinkedList<String>();
+								l.add(word);
+								map.put(new_word, l);
+							}
+							
+							if (new_word.equals(end)&&!found) found=true;		
+														
+						}
+
 					}//End:Iteration from 'a' to 'z'
 				}//End:Iteration from the first to the last
+				if (curr==0){
+					if (found) break;
+					curr=next;
+					next=0;
+					unvisited.removeAll(visited);
+					visited.clear();
+				}
 			}//End While
 
-	    	
-	    	for (String str:map.get(end)){
-		    	LinkedList<String> result = new LinkedList<String>();
-		    	result.add(end);
-	    		result.addFirst(str);
-	    		LinkedList<String> backtrace= map.get(str);
-		    	while (backtrace.size()>0){//The recent added word is not the start
-		    		int index=backtrace.size()-1;//Find the position of the word
-		    		String back= backtrace.get(index);//Find one ancestor
-		    		result.add(0,back);//Add the ancestor to the result list
-		    		if (index>0)
-		    			backtrace.remove(index);// Remove the recent added ancestor						    		
-		    		backtrace=map.get(back);//Continue back tracking
-		    	}
-		    	results.add(result);
-	    	}			
-	    	//long t2=System.currentTimeMillis();
-	    	//System.out.print("Consumes: "+(t2-t1)+"\n");
+			backTrace(end,start);
+			
 			return results;        
+	    }
+	    private void backTrace(String word,String start){
+	    	if (word.equals(start)){
+	    		list.add(0,start);
+	    		results.add(new ArrayList<String>(list));
+	    		list.remove(0);
+	    		return;
+	    	}
+	    	list.add(0,word);
+	    	if (map.get(word)!=null)
+	    		for (String s:map.get(word))
+	    			backTrace(s,start);
+	    	list.remove(0);
 	    }
 	}
