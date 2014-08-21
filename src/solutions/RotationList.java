@@ -10,13 +10,17 @@ public class RotationList {
         ListNode fast=dummy,slow=dummy;
 
         int i;
-        for (i=0;fast.next!=null;fast=fast.next,i++);
-        for (int j=i-n%i;j>0;slow=slow.next,j--);
+        for (i=0;fast.next!=null;i++)//Get the total length 
+        	fast=fast.next;
         
-        fast.next=dummy.next;
+        for (int j=i-n%i;j>0;j--) //Get the i-n%i th node
+        	slow=slow.next;
+        
+        fast.next=dummy.next; //Do the rotation
         dummy.next=slow.next;
         slow.next=null;
         
         return dummy.next;
+
     }
 }
