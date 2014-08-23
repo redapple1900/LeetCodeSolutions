@@ -5,8 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import solutions.SearchInsertPosition;
-import solutions.WildCardMatchingAlter;
+import solutions.StrStr;
 
 public class MainTest {
 
@@ -66,8 +65,12 @@ public class MainTest {
 		//String S="";
 		//String T="aaca";
 		//System.out.print(minWindow(S,T));
+		StrStr ss= new StrStr();
+		System.out.print(ss.strStr("babba", "bbb"));
 		/*
-		PalindromePartition pp= new PalindromePartition();
+		String S ="aab";
+		PalindromePartitionAlter pp= new PalindromePartitionAlter();
+		System.out.print(pp.isPalindromes(S));
 		List<List<String>> results= pp.partition(S);
 		for (int i=0;i<results.size();i++){
 			for (int j=0;j<results.get(i).size();j++)
@@ -75,7 +78,7 @@ public class MainTest {
 			System.out.print("\n");
 			
 		}
-		 	*/
+		 	
 		/*
 		int[] array={5, 7, 7, 8, 8, 10};
 		SearchForRange search = new SearchForRange();
@@ -89,6 +92,10 @@ public class MainTest {
 		for (int i=0;i<array.length;i++)
 			System.out.print(array[i]+" ");
 			*/
+		/*
+		SimplifyPath sp = new SimplifyPath();
+		System.out.print(sp.simplifyPath("/a/./b/../../../c/"));
+		/*
 		WildCardMatchingAlter wcma = new WildCardMatchingAlter();
 		String a1="hi";
 		String a2="*?";
@@ -98,7 +105,7 @@ public class MainTest {
 		
 		SearchInsertPosition sip = new SearchInsertPosition();
 		int[] array={1,3,5,6};
-		System.out.print(sip.searchInsert(array, ));
+		System.out.print(sip.searchInsert(array, 3));
 		/*
 		Set<String> set= new HashSet<String>();
 		set.add("cat");
