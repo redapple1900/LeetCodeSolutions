@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import solutions.StrStr;
+import solutions.MedianOfTwoSortedArrays;
 
 public class MainTest {
 
@@ -65,6 +65,7 @@ public class MainTest {
 		//String S="";
 		//String T="aaca";
 		//System.out.print(minWindow(S,T));
+		/*
 		StrStr ss= new StrStr();
 		System.out.print(ss.strStr("babba", "bbb"));
 		/*
@@ -282,6 +283,12 @@ public class MainTest {
 		/*
 		MultiplyStrings ms = new MultiplyStrings();
 		System.out.print(ms.multiply("54321", "12345"));
+		
+		*/
+		MedianOfTwoSortedArrays mtsa= new MedianOfTwoSortedArrays();
+		int[] a ={1,2,3};
+		int[] b ={1,2,2};
+		System.out.print(mtsa.findMedianSortedArrays(a, b));
 		
 		/*
 		SurroundedRegions sr = new SurroundedRegions();

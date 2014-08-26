@@ -1,41 +1,44 @@
 package solutions;
 
 public class MedianOfTwoSortedArrays {
+	int[] a;
+	int[] b;
+
 	public double findMedianSortedArrays(int A[], int B[]) {
-		if ((A.length + B.length) % 2 == 0)
-			return (getMedian(A, 0, A.length, B, 0, B.length, (A.length
-					+ B.length + 1) / 2) + getMedian(A, 0, A.length, B, 0,
-					B.length, (A.length + B.length) / 2)) / 2.0d;
+		a = A;
+		b = B;
+		int len_a = a.length, len_b = b.length;
+
+		if ((len_a + len_b) % 2 == 0)
+			return (getKth(0, len_a, 0, len_b, (len_a + len_b) / 2 + 1) + getKth(
+					0, len_a, 0, len_b, (len_a + len_b) / 2)) / 2.0d;
 		else
-			return getMedian(A, 0, A.length, B, 0, B.length,
-					(A.length + B.length) / 2);
+			return getKth(0, A.length, 0, B.length, (len_a + len_b) / 2 + 1);
 
 	}
 
-	private int getMedian(int a[], int al, int ar, int b[], int bl, int br,
-			int k) {
+	private int getKth(int al, int ar, int bl, int br, int k) {
+
 		if (al >= ar)
-			return b[k - 1];
+			return b[bl+k - 1];
 		if (bl >= br)
-			return a[k - 1];
+			return a[al+k - 1];
 		if (k <= 1)
 			return Math.min(a[al], b[bl]);
 
 		int m = ar - al, n = br - bl;
 
-		if (b[m / 2] >= a[n / 2]) {
-			if (n / 2 + m / 2 + 1 > k)
-				return getMedian(a, al, ar, b, bl, br - n / 2, k);
+		if (b[bl + n / 2] > a[al + m / 2]) {
+			if (n / 2 + m / 2 >=k - 1)
+				return getKth(al, ar, bl, bl+n/2, k);
 			else
-				return getMedian(a, al + m / 2 + 1, ar, b, bl, br, k
-						- (m / 2 + 1));
+				return getKth(al + m / 2 + 1, ar, bl, br, k - (m / 2 + 1));
 		} else {
 
-			if (n / 2 + m / 2 + 1 > k)
-				return getMedian(a, al, ar - m / 2, b, bl, br, k);
+			if (n / 2 + m / 2 >= k - 1)
+				return getKth(al, al+m/2, bl, br, k);
 			else
-				return getMedian(a, al, ar, b, bl + n / 2 + 1, br, k
-						- (n / 2 + 1));
+				return getKth(al, ar, bl + n / 2 + 1, br, k - (n / 2 + 1));
 		}
 	}
 
