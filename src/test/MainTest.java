@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import solutions.MedianOfTwoSortedArrays;
+import solutions.MaxPointsOnALine;
+import basicStructures.Point;
 
 public class MainTest {
 
@@ -285,6 +286,11 @@ public class MainTest {
 		System.out.print(ms.multiply("54321", "12345"));
 		
 		*/
+		MaxPointsOnALine mpol=new MaxPointsOnALine();
+		Point[] points= {new Point(0,1),new Point(0,6),new Point(0,9),new Point(0,8)};
+		System.out.print(mpol.maxPoints(points));
+		
+		/*
 		MedianOfTwoSortedArrays mtsa= new MedianOfTwoSortedArrays();
 		int[] a ={1,2,3};
 		int[] b ={1,2,2};
