@@ -3,25 +3,7 @@ package solutions;
 import java.util.Arrays;
 
 public class ScrambleString {
-		/*
-	    public boolean isScramble(String s1, String s2) {
-	    	if (s1.length()<=2)
-	    		return s1.equals(s2);
-	    	int split=s2.length()/2;
-	    	String s=recurScrableHelper(s2.substring(0,split))+recurScrableHelper(s2.substring(split));
-	    	return s.equals(s1);
-	    }
-	    
-	    private String recurScrableHelper(String s){
-	        if (s.length()==1)
-	            return s;
-	        else if (s.length()==2)
-	            return (new StringBuilder(s)).reverse().toString();
-	        int split=s.length()/2;
-			return recurScrableHelper(s.substring(split))+recurScrableHelper(s.substring(0,split));	        	        
-	    }
-	    */
-	
+
 	    public boolean isScramble(String s1, String s2) {
 	        
 	        if (s1.length()==1) return true;
